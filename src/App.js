@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles/main.sass';
+import SubscriptionForm from './components/SubscriptionForm';
+import { subscribe } from './api/api';
+import Countdown from './components/Countdown';
+import moment from 'moment';
+import Header from "./components/Header";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// TODO receive from the backend
+const target = moment("2019 06 29", 'YYYYMMDD');
+
+class App extends React.Component {
+
+    onSubscribe = (e) => {
+        e.preventDefault();
+        // TODO validate
+        subscribe(e.target.elements.email.value);
+        e.target.elements.email.value = ''
+    };
+
+
+    render() {
+        return (
+            <div className="App">
+                <Header />
+                <div className="container">
+                    <Countdown target={target} />
+                    <SubscriptionForm onSubscribe={this.onSubscribe} />
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;
