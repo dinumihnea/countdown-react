@@ -11,8 +11,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            target: null,
-            errorMessage: ''
+            target: null
         }
     }
 
@@ -26,24 +25,23 @@ class App extends React.Component {
         }
     }
 
+    loadingContent = () => (
+        <div className={'cd-loader'} />);
+
     render() {
-        if (this.state.target) {
-            return (
-                <div className="cd-app">
-                    <div className="cd-overlay">
-                        <Header />
-                        <div className="cd-main-layout">
-                            <div className="cd-main-container">
-                                <Countdown target={this.state.target} />
-                                <SubscriptionForm />
-                            </div>
+        return (
+            <div className="cd-app">
+                <div className="cd-overlay">
+                    <Header />
+                    <div className="cd-main-layout">
+                        <div className="cd-main-container">
+                            {this.state.target ? <Countdown target={this.state.target} /> : this.loadingContent()}
+                            <SubscriptionForm />
                         </div>
                     </div>
                 </div>
-            );
-        } else {
-            return <div>Loading</div>
-        }
+            </div>
+        );
     }
 }
 

@@ -1,0 +1,19 @@
+@import "../variables"
+
+.cd-loader
+  width: $cd-spacing-xl
+  height: $cd-spacing-xl
+  margin: $cd-spacing-xl auto
+  border: 2px solid $cd-accent-color
+  border-bottom-color: rgba(#fff, 0.8)
+  border-right-color: rgba(#fff, 0.8)
+  background-color: rgba(#fff, 0.3)
+  border-radius: 100%
+  animation: rotate-spin .6s linear .2s infinite
+
+
+@keyframes rotate-spin
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)

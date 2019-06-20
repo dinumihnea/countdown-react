@@ -2,7 +2,7 @@ module.exports = {
   'API_PREFIX': 'api',
   'API_VERSION': 'v1',
   'IS_PRODUCTION': process.env.NODE_ENV === 'production',
-  'COUNTDOWN_TARGET': new Date(2019, 5, 20, 21).getTime(),
+  'COUNTDOWN_TARGET': new Date(2019, 5, 21, 21).getTime(),
   'DR_URL': 'mongodb://localhost:27017/countdown',
   'SECRET': 'SECRET',
   'EMAIL_SERVICE': 'gmail',
