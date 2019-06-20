@@ -7,7 +7,9 @@ class SubscriptionForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.props.onSubscribe}>
+            <form
+                className={'cd-form-group'}
+                onSubmit={this.props.onSubscribe}>
                 <input
                     className={'cd-input cd-input--rounded'}
                     type="email"

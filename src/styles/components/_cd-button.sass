@@ -2,11 +2,12 @@
 
 .cd-button
   box-sizing: border-box
-  padding: $cd-spacing-xs $cd-spacing-s
+  padding: $cd-spacing-s + $cd-spacing-xs $cd-spacing-l
   border: none
-  line-height: 1rem
+  line-height: $cd-spacing-m
+  font-size: $cd-font-size-m
   background-color: $cd-accent-color
   color: $cd-accent-color-contrast
-  &.cd-button--rounded
-    border-radius: $cd-spacing-xs
 
+  &.cd-button--rounded
+    border-radius: $cd-border-radius

@@ -15,6 +15,7 @@ class App extends React.Component {
             target: null
         }
     }
+
     onSubscribe = (e) => {
         e.preventDefault();
         subscriberService.insertSubscriber(e.target.elements.email.value);
@@ -34,11 +35,13 @@ class App extends React.Component {
     render() {
         if (this.state.target) {
             return (
-                <div className="App">
-                    <Header />
-                    <div className="container">
-                        <Countdown target={this.state.target} />
-                        <SubscriptionForm onSubscribe={this.onSubscribe} />
+                <div className="cd-app">
+                    <div className="cd-overlay">
+                        <Header />
+                        <div className="container">
+                            <Countdown target={this.state.target} />
+                            <SubscriptionForm onSubscribe={this.onSubscribe} />
+                        </div>
                     </div>
                 </div>
             );
