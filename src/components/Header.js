@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Header = () => (
-    <header>Countdown</header>
+    <header className={'cd-header'}>Countdown</header>
 );
 
 export default Header;
