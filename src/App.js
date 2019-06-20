@@ -38,9 +38,11 @@ class App extends React.Component {
                 <div className="cd-app">
                     <div className="cd-overlay">
                         <Header />
-                        <div className="container">
-                            <Countdown target={this.state.target} />
-                            <SubscriptionForm onSubscribe={this.onSubscribe} />
+                        <div className="cd-main-layout">
+                            <div className="cd-main-container">
+                                <Countdown target={this.state.target} />
+                                <SubscriptionForm onSubscribe={this.onSubscribe} />
+                            </div>
                         </div>
                     </div>
                 </div>
