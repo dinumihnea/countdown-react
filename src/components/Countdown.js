@@ -41,11 +41,23 @@ class Countdown extends React.Component {
         const minutes = Math.floor((diff / 1000) / 60) % 60;
         const seconds = Math.floor(diff / 1000) % 60;
         return (
-            <div>
-                <div>{days}</div>
-                <div>{hours}</div>
-                <div>{minutes}</div>
-                <div>{seconds}</div>
+            <div className={'cd-countdown'}>
+                <div className={'cd-countdown__item'}>
+                    <div className={'cd-countdown-item__header'}>{days}</div>
+                    <div className={'cd-countdown-item__subheader'}>Days</div>
+                </div>
+                <div className={'cd-countdown__item'}>
+                    <div className={'cd-countdown-item__header'}>{hours}</div>
+                    <div className={'cd-countdown-item__subheader'}>Hours</div>
+                </div>
+                <div className={'cd-countdown__item'}>
+                    <div className={'cd-countdown-item__header'}>{minutes}</div>
+                    <div className={'cd-countdown-item__subheader'}>Minutes</div>
+                </div>
+                <div className={'cd-countdown__item'}>
+                    <div className={'cd-countdown-item__header'}>{seconds}</div>
+                    <div className={'cd-countdown-item__subheader'}>Seconds</div>
+                </div>
             </div>
         )
     }
