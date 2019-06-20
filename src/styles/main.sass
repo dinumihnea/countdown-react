@@ -1,32 +1,5 @@
 @import "components/cd-button"
 @import "components/cd-input"
 
-.cd-app
-  width: 100vw
-  height: 100vh
-  background-image: url('../images/modern_architecture.jpg')
-  background-size: cover
-  background-position: center
-  overflow: hidden
-
-  .cd-overlay
-    width: 100%
-    height: 100%
-    background-color: rgba(#000, 0.45)
-
-  .cd-form-group
-    display: flex
-    align-items: center
-    width: 600px
-    height: $cd-spacing-l + $cd-spacing-s
-    margin: auto
-
-    .cd-input
-      border-bottom-right-radius: 0
-      border-top-right-radius: 0
-      flex: 1 1 200px
-
-    .cd-button
-      border-bottom-left-radius: 0
-      border-top-left-radius: 0
-      flex: 0 0 auto
+@import "containers/cd-app"
+@import "containers/cd-form-group"
