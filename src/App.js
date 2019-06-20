@@ -1,7 +1,6 @@
 import React from 'react';
 import './styles/main.sass';
 import SubscriptionForm from './components/SubscriptionForm';
-import { subscriberService } from './services/subscriber-service';
 import Countdown from './components/Countdown';
 import Header from "./components/Header";
 import { countdownService } from "./services/countdown-service";
@@ -12,15 +11,10 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            target: null
+            target: null,
+            errorMessage: ''
         }
     }
-
-    onSubscribe = (e) => {
-        e.preventDefault();
-        subscriberService.insertSubscriber(e.target.elements.email.value);
-        e.target.elements.email.value = ''
-    };
 
     async componentDidMount(): void {
         try {
@@ -41,7 +35,7 @@ class App extends React.Component {
                         <div className="cd-main-layout">
                             <div className="cd-main-container">
                                 <Countdown target={this.state.target} />
-                                <SubscriptionForm onSubscribe={this.onSubscribe} />
+                                <SubscriptionForm />
                             </div>
                         </div>
                     </div>
