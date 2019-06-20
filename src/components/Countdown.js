@@ -4,7 +4,7 @@ import moment from 'moment';
 class Countdown extends React.Component {
 
     state: {
-        now: {};
+        now: null
     };
 
     componentWillMount(): void {
@@ -17,15 +17,25 @@ class Countdown extends React.Component {
 
     tick = () => {
         const now = moment();
-        if (this.props.target > now) {
+        if (this.getDiff() > 0) {
             this.setState({now});
             setTimeout(this.tick, 1000)
         }
     };
 
+    getDiff = () => {
+        const {target} = this.props;
+        const {now} = this.state;
+        if (target && now) {
+            return target.diff(now, "milliseconds");
+        } else {
+            return 0;
+        }
+    };
+
     render() {
-        console.log(this.state);
-        const diff = this.props.target - this.state.now;
+        const diff = this.getDiff();
+
         const days = Math.floor((((diff / 1000) / 60) / 60) / 24);
         const hours = Math.floor(((diff / 1000) / 60) / 60) % 24;
         const minutes = Math.floor((diff / 1000) / 60) % 60;
