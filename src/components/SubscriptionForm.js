@@ -52,6 +52,7 @@ class SubscriptionForm extends React.Component {
     };
 
     render() {
+        const notificationType = this.state.hasError ? 'error' : 'success';
         return (
             <form
                 className={'cd-form-group'}
@@ -64,7 +65,9 @@ class SubscriptionForm extends React.Component {
                     className={'cd-button cd-button--rounded'}
                 >Subscribe
                 </button>
-                <div>{this.state.responseMessage}</div>
+                <div className={`cd-form-group__notification cd-form-group__notification--${notificationType}`}>
+                    {this.state.responseMessage}
+                </div>
             </form>
         )
     }
