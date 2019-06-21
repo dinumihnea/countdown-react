@@ -33,6 +33,15 @@ class Countdown extends React.Component {
         }
     };
 
+    countdownPlaceholder = () => {
+        return (
+            <div className={'cd-countdown__placeholder'}>
+                <span className={'cd-countdown-placeholder__icon'}>✓</span>
+                <span>Countdown Finished</span>
+            </div>
+        )
+    };
+
     render() {
         const diff = this.getDiff();
 
@@ -42,22 +51,26 @@ class Countdown extends React.Component {
         const seconds = Math.floor(diff / 1000) % 60;
         return (
             <div className={'cd-countdown'}>
-                <div className={'cd-countdown__item'}>
-                    <div className={'cd-countdown-item__header'}>{days}</div>
-                    <div className={'cd-countdown-item__subheader'}>Days</div>
-                </div>
-                <div className={'cd-countdown__item'}>
-                    <div className={'cd-countdown-item__header'}>{hours}</div>
-                    <div className={'cd-countdown-item__subheader'}>Hours</div>
-                </div>
-                <div className={'cd-countdown__item'}>
-                    <div className={'cd-countdown-item__header'}>{minutes}</div>
-                    <div className={'cd-countdown-item__subheader'}>Minutes</div>
-                </div>
-                <div className={'cd-countdown__item'}>
-                    <div className={'cd-countdown-item__header'}>{seconds}</div>
-                    <div className={'cd-countdown-item__subheader'}>Seconds</div>
-                </div>
+                {diff <= 0 ? this.countdownPlaceholder() :
+                    <React.Fragment>
+                        <div className={'cd-countdown__item'}>
+                            <div className={'cd-countdown-item__header'}>{days}</div>
+                            <div className={'cd-countdown-item__subheader'}>Days</div>
+                        </div>
+                        <div className={'cd-countdown__item'}>
+                            <div className={'cd-countdown-item__header'}>{hours}</div>
+                            <div className={'cd-countdown-item__subheader'}>Hours</div>
+                        </div>
+                        <div className={'cd-countdown__item'}>
+                            <div className={'cd-countdown-item__header'}>{minutes}</div>
+                            <div className={'cd-countdown-item__subheader'}>Minutes</div>
+                        </div>
+                        <div className={'cd-countdown__item'}>
+                            <div className={'cd-countdown-item__header'}>{seconds}</div>
+                            <div className={'cd-countdown-item__subheader'}>Seconds</div>
+                        </div>
+                    </React.Fragment>
+                }
             </div>
         )
     }
