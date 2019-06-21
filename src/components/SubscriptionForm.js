@@ -58,7 +58,7 @@ class SubscriptionForm extends React.Component {
             <React.Fragment>
                 <MessageBox
                     primary={"Email Notification"}
-                    secondary={"Subscribe to receive a notification when countdown finish"} />
+                    secondary={"Subscribe to receive a notification when countdown finishes"} />
                 <form
                     className={'cd-form-group'}
                     onSubmit={this.subscribe}>
