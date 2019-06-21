@@ -1,26 +1,48 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles/main.sass';
+import SubscriptionForm from './components/SubscriptionForm';
+import Countdown from './components/Countdown';
+import Header from "./components/Header";
+import { countdownService } from "./services/countdown-service";
+import moment from "moment";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            target: null
+        }
+    }
+
+    async componentDidMount(): void {
+        try {
+            const countdownTarget = await countdownService.getTarget();
+            this.setState({target: moment(countdownTarget)});
+        } catch (error) {
+            this.setState({target: moment()});
+            console.log(error)
+        }
+    }
+
+    loadingContent = () => (
+        <div className={'cd-loader'} />);
+
+    render() {
+        return (
+            <div className="cd-app">
+                <div className="cd-overlay">
+                    <Header />
+                    <div className="cd-main-layout">
+                        <div className="cd-main-container">
+                            {this.state.target ? <Countdown target={this.state.target} /> : this.loadingContent()}
+                            <SubscriptionForm />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;

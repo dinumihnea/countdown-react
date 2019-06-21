@@ -1,0 +1,21 @@
+@import "../variables"
+
+.cd-input
+  height: 100%
+  box-sizing: border-box
+  padding: $cd-spacing-s 0 $cd-spacing-s $cd-spacing-s
+  font-size: $cd-font-size-m
+  border: none
+  outline: none
+  background-color: rgba(#fff, 0.6)
+  color: $cd-font-color-contrast
+  box-shadow: 0 0 0 0 transparent
+  transition: 0.15s background-color ease-in-out, 0.1s box-shadow ease-in
+
+  &:focus
+    background-color: rgba(#fff, 0.8)
+    box-shadow: 0 0 0 1px $cd-accent-color
+
+  &.cd-input--rounded
+    border-radius: $cd-border-radius
+

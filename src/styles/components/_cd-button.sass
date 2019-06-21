@@ -1,0 +1,26 @@
+@import "../variables"
+
+.cd-button
+  box-sizing: border-box
+  padding: $cd-spacing-s + $cd-spacing-xs $cd-spacing-l
+  line-height: $cd-spacing-m
+  font-size: $cd-font-size-m
+  background-color: $cd-accent-color
+  color: $cd-accent-color-contrast
+  letter-spacing: 0.025rem
+  text-transform: uppercase
+  font-weight: 700
+  border: none
+  outline: none
+  cursor: pointer
+  box-shadow: 0 0 0 0 transparent
+  transition: 0.15s background-color ease-in-out, 0.1s box-shadow ease-in
+
+  &:hover
+    background-color: darken($cd-accent-color, 15)
+
+  &:focus
+    box-shadow: 0 0 0 1px $cd-accent-color
+
+  &.cd-button--rounded
+    border-radius: $cd-border-radius

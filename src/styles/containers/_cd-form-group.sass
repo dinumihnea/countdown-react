@@ -1,0 +1,32 @@
+@import "../variables"
+
+.cd-form-group
+  position: relative
+  display: flex
+  align-items: center
+  width: 600px
+  height: $cd-spacing-l + $cd-spacing-s
+  margin: $cd-spacing-m auto $cd-spacing-xl
+
+  .cd-form-group__notification
+    position: absolute
+    width: 100%
+    bottom: 0
+    left: 0
+    text-align: center
+    margin-bottom: -$cd-spacing-m - $cd-spacing-s
+    color: $cd-font-color
+    &.cd-form-group__notification--success
+      color: $cd-accent-color
+    &.cd-form-group__notification--error
+      color: $cd-error-color
+
+  .cd-input--rounded
+    border-bottom-right-radius: 0
+    border-top-right-radius: 0
+    flex: 1 1 200px
+
+  .cd-button--rounded
+    border-bottom-left-radius: 0
+    border-top-left-radius: 0
+    flex: 0 0 auto

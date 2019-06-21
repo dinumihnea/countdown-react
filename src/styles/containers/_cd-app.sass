@@ -1,0 +1,24 @@
+@import "../variables"
+
+.cd-app
+  width: 100vw
+  height: 100vh
+  background-image: url($cd-main-background-url)
+  background-size: cover
+  background-position: center
+  overflow: hidden
+  color: $cd-font-color
+
+  .cd-overlay
+    width: 100%
+    height: 100%
+    background-color: $cd-app-overlay
+
+  .cd-main-layout
+    width: 100%
+    height: 100%
+    display: flex
+    align-items: center
+
+  .cd-main-container
+    width: 100%
