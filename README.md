@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Build with
+## Built with
 `mongodb` data storage
 
 `monogoose` data model provider
